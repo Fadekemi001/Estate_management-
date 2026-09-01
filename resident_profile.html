@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident Profile | Estate E-Tag System</title>
+  <link rel="stylesheet" href="resident_profile.css">
+</head>
+<body>
+  <main class="page">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-name">ESTATE E-TAG</div>
+        <div class="brand-system">SYSTEM</div>
+      </div>
+
+      <h2>Your <span>profile.</span></h2>
+      <p class="sidebar-copy">
+        Manage your resident information and keep your vehicle details up to date.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">●</div>
+          <div>
+            <strong>Resident details</strong>
+            <small>View and update your contact information.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">▣</div>
+          <div>
+            <strong>Your vehicles</strong>
+            <small>Keep your registered vehicle information current.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div>
+            <strong>E-Tag access</strong>
+            <small>See your current E-Tag status and related vehicle.</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="profile-shell">
+
+        <div class="topbar">
+          <div>
+            <h1>My Profile</h1>
+            <p class="subtitle">View and manage your resident information</p>
+          </div>
+
+          <div class="safe">
+            <span class="safe-icon">✓</span>
+            <span>Your data is safe<br>with us</span>
+          </div>
+        </div>
+
+        <div class="profile-header">
+          <div class="profile-avatar">JD</div>
+          <div class="profile-main">
+            <h2>John Doe</h2>
+            <p>Resident · Unit 5A</p>
+          </div>
+          <span class="account-status">Active Account</span>
+        </div>
+
+        <section class="card">
+          <div class="card-heading">
+            <div>
+              <h3>Personal Information</h3>
+              <p>Keep your resident and contact information current.</p>
+            </div>
+            <button class="edit-btn" type="button">Edit</button>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <span>Full Name</span>
+              <strong>John Doe</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Email Address</span>
+              <strong>john.doe@email.com</strong>
+            </div>
+
+            <div class="info-item">
+              <span>Phone Number</span>
+              <strong>080X XXX XXXX</strong>
+            </div>
+
+            <div class="info-item">
+              <span>House / Unit Number</span>
+              <strong>Unit 5A</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-heading">
+            <div>
+              <h3>Registered Vehicles</h3>
+              <p>Vehicles connected to your resident account.</p>
+            </div>
+            <a class="text-btn" href="#">+ Add Vehicle</a>
+          </div>
+
+          <div class="vehicle-table">
+            <div class="vehicle-row vehicle-head">
+              <span>Vehicle</span>
+              <span>Plate Number</span>
+              <span>Color</span>
+              <span>Status</span>
+            </div>
+
+            <div class="vehicle-row">
+              <div>
+                <strong>Toyota Corolla</strong>
+                <small>Toyota · Corolla</small>
+              </div>
+              <span>ABC 123 XY</span>
+              <span>Black</span>
+              <span class="tag active">Registered</span>
+            </div>
+
+            <div class="vehicle-row">
+              <div>
+                <strong>Honda Civic</strong>
+                <small>Honda · Civic</small>
+              </div>
+              <span>KJA 456 AB</span>
+              <span>White</span>
+              <span class="tag active">Registered</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-heading">
+            <div>
+              <h3>E-Tag Status</h3>
+              <p>Your vehicle access tag and its current state.</p>
+            </div>
+            <a class="text-btn" href="#">View Application</a>
+          </div>
+
+          <div class="etag-summary">
+            <div class="qr-placeholder">
+              <div class="qr-grid">
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <div class="etag-details">
+              <div class="etag-top">
+                <div>
+                  <span class="label">E-Tag ID</span>
+                  <strong>ET-10284</strong>
+                </div>
+                <span class="tag active">Active</span>
+              </div>
+
+              <div class="details-grid">
+                <div>
+                  <span class="label">Vehicle</span>
+                  <strong>Toyota Corolla</strong>
+                </div>
+
+                <div>
+                  <span class="label">Plate Number</span>
+                  <strong>ABC 123 XY</strong>
+                </div>
+
+                <div>
+                  <span class="label">Expiry Date</span>
+                  <strong>31 Dec 2026</strong>
+                </div>
+
+                <div>
+                  <span class="label">Application Status</span>
+                  <strong>Approved</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p class="footer-note">
+          Only information associated with your resident account is shown on this page.
+        </p>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>

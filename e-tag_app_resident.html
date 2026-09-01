@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resident E-Tag Application</title>
+  <link rel="stylesheet" href="etag-application.css">
+</head>
+<body>
+  <main class="page">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-name">ESTATE E-TAG</div>
+        <div class="brand-system">SYSTEM</div>
+      </div>
+
+      <h2>Apply for an <span>E-Tag.</span></h2>
+      <p class="sidebar-copy">
+        Submit your vehicle details and documents for estate access approval.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div>
+            <strong>Simple application</strong>
+            <small>Select your registered vehicle and provide the required details.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">▣</div>
+          <div>
+            <strong>Upload documents</strong>
+            <small>Add proof of ownership and identification for review.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">↗</div>
+          <div>
+            <strong>Track status</strong>
+            <small>Your application can show pending, approved or correction status.</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="form-shell">
+
+        <div class="topbar">
+          <div class="resident-badge">
+            <span class="avatar">R</span>
+            <div>
+              <strong>Resident</strong>
+              <small>Welcome, John Doe</small>
+            </div>
+          </div>
+
+          <div class="safe">
+            <span class="safe-icon">✓</span>
+            <span>Your data is safe<br>with us</span>
+          </div>
+        </div>
+
+        <h1>Apply for an E-Tag</h1>
+        <p class="subtitle">Request an E-Tag for one of your registered vehicles</p>
+
+        <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+        <form id="etagForm" novalidate>
+
+          <h3>Vehicle Information</h3>
+
+          <div class="field">
+            <label for="vehicle">Select Registered Vehicle</label>
+            <div class="select-wrap">
+              <span class="field-icon">▣</span>
+              <select id="vehicle" required>
+                <option value="" selected disabled>Select a registered vehicle</option>
+                <option value="toyota-corolla" data-plate="ABC 123 XY" data-color="Black" data-make="Toyota" data-model="Corolla">
+                  Toyota Corolla — ABC 123 XY
+                </option>
+                <option value="honda-civic" data-plate="KJA 456 AB" data-color="White" data-make="Honda" data-model="Civic">
+                  Honda Civic — KJA 456 AB
+                </option>
+              </select>
+            </div>
+            <small class="field-help">Only vehicles already registered to your resident account appear here.</small>
+          </div>
+
+          <div class="two">
+            <div class="field">
+              <label for="plate">License Plate Number</label>
+              <div class="input-wrap">
+                <span class="field-icon">▤</span>
+                <input id="plate" type="text" placeholder="e.g. ABC 123 XY" readonly>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="color">Vehicle Color</label>
+              <div class="input-wrap">
+                <span class="field-icon">◐</span>
+                <input id="color" type="text" placeholder="e.g. Black" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="two">
+            <div class="field">
+              <label for="make">Vehicle Make</label>
+              <div class="input-wrap">
+                <span class="field-icon">⌂</span>
+                <input id="make" type="text" placeholder="e.g. Toyota" readonly>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="model">Vehicle Model</label>
+              <div class="input-wrap">
+                <span class="field-icon">◇</span>
+                <input id="model" type="text" placeholder="e.g. Corolla" readonly>
+              </div>
+            </div>
+          </div>
+
+          <h3>Supporting Documents</h3>
+
+          <div class="field">
+            <label for="ownership">Proof of Vehicle Ownership</label>
+            <div class="upload">
+              <div class="upload-icon">↑</div>
+              <div class="upload-copy">
+                <strong>Upload ownership document</strong>
+                <small>PDF, JPG or PNG</small>
+              </div>
+              <input id="ownership" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+            <div id="ownershipName" class="file-name"></div>
+          </div>
+
+          <div class="field">
+            <label for="identification">Identification</label>
+            <div class="upload">
+              <div class="upload-icon">↑</div>
+              <div class="upload-copy">
+                <strong>Upload identification document</strong>
+                <small>PDF, JPG or PNG</small>
+              </div>
+              <input id="identification" type="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+            <div id="identificationName" class="file-name"></div>
+          </div>
+
+          <label class="check">
+            <input id="confirmation" type="checkbox" required>
+            <span>I confirm that the vehicle details and supporting documents provided are accurate and belong to this resident account.</span>
+          </label>
+
+          <button id="submitBtn" type="submit">
+            Submit E-Tag Application
+            <span>→</span>
+          </button>
+
+          <p class="hint">
+            This is a frontend-only resident view. The submission is simulated with JavaScript for now; backend/API processing can be connected later.
+          </p>
+        </form>
+
+        <div id="successCard" class="success-card" hidden>
+          <div class="success-mark">✓</div>
+          <h2>Application Submitted</h2>
+          <p>Your E-Tag application has been recorded in this demo as <strong>Pending Review</strong>.</p>
+          <div class="summary">
+            <div><span>Vehicle</span><strong id="summaryVehicle"></strong></div>
+            <div><span>Plate</span><strong id="summaryPlate"></strong></div>
+            <div><span>Status</span><strong class="pending">Pending Review</strong></div>
+          </div>
+          <button id="newApplication" class="secondary-btn" type="button">Start New Application</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  
+</body>
+</html>
