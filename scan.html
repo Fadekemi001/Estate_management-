@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan | Estate E-Tag System</title>
+  <link rel="stylesheet" href="scan.css">
+</head>
+<body>
+  <main class="page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-name">ESTATE E-TAG</div>
+        <div class="brand-system">SYSTEM</div>
+      </div>
+
+      <h2>Gate <span>verification.</span></h2>
+      <p class="sidebar-copy">
+        Scan an E-Tag or QR code to verify vehicle access quickly at the gate.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⌁</div>
+          <div>
+            <strong>Fast scanning</strong>
+            <small>Verify an E-Tag or QR code with minimal steps.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div>
+            <strong>Real-time result</strong>
+            <small>Clearly show whether access is valid or denied.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⌕</div>
+          <div>
+            <strong>Manual lookup</strong>
+            <small>Find a resident or vehicle when a scan is unavailable.</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="scan-shell">
+        <div class="topbar">
+          <div>
+            <h1>Scan E-Tag</h1>
+            <p class="subtitle">Security Personnel · Gate Verification</p>
+          </div>
+
+          <div class="officer">
+            <span class="avatar">SP</span>
+            <div>
+              <strong>Security Personnel</strong>
+              <small>Gate Officer 01</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-status">
+          <span class="online-dot"></span>
+          Scanner ready · Real-time verification
+        </div>
+
+        <section class="scanner-card">
+          <div class="scan-frame">
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <div class="scan-line"></div>
+            <div class="scan-symbol">⌗</div>
+            <p>Position E-Tag / QR code<br>inside the frame</p>
+          </div>
+
+          <button class="primary-btn" type="button" id="scanButton">Start Scan <span>→</span></button>
+          <p class="scan-hint">The verification result will appear here after the code is scanned.</p>
+        </section>
+
+        <div class="or-divider"><span>or use manual lookup</span></div>
+
+        <section class="lookup-card">
+          <h2>Manual Lookup</h2>
+          <p>Use this when the tag cannot be scanned.</p>
+
+          <div class="lookup-row">
+            <select id="lookupType" aria-label="Lookup type">
+              <option value="plate">License Plate</option>
+              <option value="resident">Resident Name</option>
+            </select>
+
+            <input id="lookupValue" type="text" placeholder="Enter license plate" aria-label="Lookup value">
+            <button class="lookup-btn" type="button" id="lookupButton">Search</button>
+          </div>
+        </section>
+
+        <section class="result-card" id="resultCard" aria-live="polite">
+          <div class="result-placeholder">
+            <div class="result-icon">✓</div>
+            <div>
+              <strong>Verification result</strong>
+              <p>Scan an E-Tag or perform a manual lookup to see access details.</p>
+            </div>
+          </div>
+        </section>
+
+        <p class="footer-note">Every verification attempt should be logged with timestamp, vehicle plate, E-Tag ID and officer ID.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const scanButton = document.getElementById('scanButton');
+    const lookupButton = document.getElementById('lookupButton');
+    const lookupType = document.getElementById('lookupType');
+    const lookupValue = document.getElementById('lookupValue');
+    const resultCard = document.getElementById('resultCard');
+
+    lookupType.addEventListener('change', () => {
+      lookupValue.placeholder = lookupType.value === 'plate'
+        ? 'Enter license plate'
+        : 'Enter resident name';
+    });
+
+    function showResult(valid, reason) {
+      resultCard.className = valid ? 'result-card valid' : 'result-card denied';
+      resultCard.innerHTML = `
+        <div class="result-head">
+          <div class="result-badge">${valid ? 'VALID' : 'DENIED'}</div>
+          <span class="result-time">Just now</span>
+        </div>
+        <div class="result-grid">
+          <div><span>Vehicle Plate</span><strong>ABC 123 XY</strong></div>
+          <div><span>E-Tag ID</span><strong>ET-10284</strong></div>
+          <div><span>Resident</span><strong>John Doe</strong></div>
+          <div><span>Vehicle</span><strong>Toyota Corolla</strong></div>
+          <div><span>Access Status</span><strong>${valid ? 'Approved for Entry' : reason}</strong></div>
+          <div><span>Officer</span><strong>Gate Officer 01</strong></div>
+        </div>
+        <div class="result-message">${valid ? 'E-Tag is active. Access may be granted.' : 'Access must not be granted. Verify the vehicle or contact an administrator.'}</div>
+      `;
+    }
+
+    scanButton.addEventListener('click', () => {
+      scanButton.disabled = true;
+      scanButton.innerHTML = 'Scanning... <span>...</span>';
+
+      setTimeout(() => {
+        showResult(true, 'Access denied');
+        scanButton.disabled = false;
+        scanButton.innerHTML = 'Scan Again <span>↻</span>';
+      }, 900);
+    });
+
+    lookupButton.addEventListener('click', () => {
+      const value = lookupValue.value.trim();
+      if (!value) {
+        lookupValue.focus();
+        lookupValue.classList.add('error-input');
+        return;
+      }
+      lookupValue.classList.remove('error-input');
+      showResult(true, 'Access denied');
+    });
+  </script>
+</body>
+</html>

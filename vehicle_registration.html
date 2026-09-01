@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Registration | Estate E-Tag System</title>
+  <link rel="stylesheet" href="vehicle_registration.css">
+</head>
+<body>
+  <main class="page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-name">ESTATE E-TAG</div>
+        <div class="brand-system">SYSTEM</div>
+      </div>
+
+      <h2>Register your <span>vehicle.</span></h2>
+      <p class="sidebar-copy">
+        Add a vehicle to your resident account before applying for an E-Tag.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">▣</div>
+          <div>
+            <strong>Vehicle details</strong>
+            <small>Enter the make, model, color and license plate information.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div>
+            <strong>Multiple vehicles</strong>
+            <small>More than one vehicle can be registered to your household.</small>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">↗</div>
+          <div>
+            <strong>E-Tag ready</strong>
+            <small>Once registered, the vehicle can be selected for an E-Tag application.</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="form-shell">
+        <div class="topbar">
+          <div class="resident-badge">
+            <span class="avatar">R</span>
+            <div>
+              <strong>Resident</strong>
+              <small>Welcome, John Doe</small>
+            </div>
+          </div>
+
+          <div class="safe">
+            <span class="safe-icon">✓</span>
+            <span>Your data is safe<br>with us</span>
+          </div>
+        </div>
+
+        <h1>Register a Vehicle</h1>
+        <p class="subtitle">Add a vehicle to your resident account</p>
+
+        <div class="notice">
+          Vehicle registration is available only to the resident account currently signed in.
+        </div>
+
+        <form action="#" method="post">
+          <h3>Vehicle Information</h3>
+
+          <div class="two">
+            <div class="field">
+              <label for="make">Vehicle Make</label>
+              <div class="input-wrap">
+                <span class="field-icon">⌂</span>
+                <input id="make" name="make" type="text" placeholder="e.g. Toyota" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="model">Vehicle Model</label>
+              <div class="input-wrap">
+                <span class="field-icon">◇</span>
+                <input id="model" name="model" type="text" placeholder="e.g. Corolla" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="two">
+            <div class="field">
+              <label for="color">Vehicle Color</label>
+              <div class="input-wrap">
+                <span class="field-icon">◐</span>
+                <input id="color" name="color" type="text" placeholder="e.g. Black" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="plate">License Plate Number</label>
+              <div class="input-wrap">
+                <span class="field-icon">▤</span>
+                <input id="plate" name="plate" type="text" placeholder="e.g. ABC 123 XY" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-note">
+            <span class="card-note-icon">i</span>
+            <div>
+              <strong>Before adding the vehicle</strong>
+              <small>Make sure the information matches your vehicle records. Registered vehicles will be available when you apply for an E-Tag.</small>
+            </div>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="confirmation" required>
+            <span>I confirm that the vehicle information provided is accurate and belongs to my resident account.</span>
+          </label>
+
+          <button type="submit">
+            Register Vehicle
+            <span>→</span>
+          </button>
+
+          <div class="footer-actions">
+            <a href="resident_profile.html">Back to My Profile</a>
+            <a href="#">View Registered Vehicles</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
