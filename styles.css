@@ -302,9 +302,12 @@ select{padding-left:13px}
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
+  padding: 10px;
+  margin-left: 10px;
 }
 .alt{
   height:40px;
+  width: 400px;
   border:1px solid var(--line);
   border-radius:8px;
   background:#fff;
